@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main(void) {
+	int vetor[4] = { 1, 2, 3, 4 };
+	printf("BUSCA DE UMA CHAVE NO VETOR: %d\n", buscaDaChave(vetor, 4, 2));
+	printf("SOMA %d\n", soma(22, 3));
+	printf("MULTIPLICAÇÃO %d\n", multiplicacao(22, 2));
+	return 0;
+}
+
+int buscaDaChave(int vetor[], int tamanho, int chave) {
+	if (chave<0) {
+		return -1;
+	}
+	if (chave == vetor[tamanho - 1]) {
+		return (tamanho - 1);
+	}
+	return buscaDaChave(vetor, tamanho - 1, chave);
+}
+
+int multiplicacao(int numero, int vezes) {
+	if (numero == 1) return vezes;
+	if (numero == 0) return 0;
+	return vezes + multiplicacao(numero - 1, vezes);
+}
+
+int soma(int a, int b) {
+	if (b == 0) return a;
+	return(soma(a + 1, b - 1));
+}
